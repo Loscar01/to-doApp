@@ -35,18 +35,18 @@ export const UserContextProvider = ({ children }) => {
         {
           email: registrationValues.email,
           password: registrationValues.password,
-          options: {
-            data: {
-              user_name: registrationValues.firstName,
-            }
-          }
+          
         }
       )
         if (error) {
             alert("El correo introducido ya existe o hubo muchos intentos")
-            console.log("CORREO EXISTENTE: ", error)
+            console.log(error)
         }else{
-            alert("Registro exitoso: ", data)
+          Swal.fire({
+            title: "Registro exitoso!",
+            text: "Verifica tu casilla de correo para confirmar tu cuenta",
+            icon: "success"
+          });
             navigate('/home')
         }
     } catch (error) {

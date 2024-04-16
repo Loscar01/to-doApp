@@ -89,18 +89,11 @@ function SignIn_Login() {
               name="email"
               value={registrationValues.email}
               onChange={handleRegistrationInput}
-              placeholder="carlos@gmail.com"
+              placeholder="myemail@gmail.com"
               className='register__input'
             />
           </label>
-          <label>Nombre: 
-            <input type="text" 
-            placeholder='Joe Doe'
-            className='register__input'
-            name='firstName'
-            value={registrationValues.firstName}
-            />
-          </label>
+          
 
           <label className='register__label-password'>
             Contraseña
