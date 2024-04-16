@@ -5,6 +5,7 @@ import { UserContextProvider } from './context/UserContext'; // Correcci√≥n aqu√
 import SignIn_Login from './pages/SignIn_Login';
 import Home from './pages/Home';
 import NotFound from "./pages/NotFound";
+import MyAccount from './pages/MyAccount';
 
 function App() {
   return (
@@ -12,6 +13,7 @@ function App() {
       <Routes>
         <Route path='/' element={<SignIn_Login />} />
         <Route path='/home' element={<Home />} />
+        <Route path='/account' element={<MyAccount/>}></Route>
         <Route path='*' element={<NotFound />} />
       </Routes>
     </UserContextProvider>

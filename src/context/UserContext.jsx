@@ -37,7 +37,7 @@ export const UserContextProvider = ({ children }) => {
           password: registrationValues.password,
           options: {
             data: {
-              first_name: registrationValues.firstName,
+              user_name: registrationValues.firstName,
             }
           }
         }
@@ -54,6 +54,8 @@ export const UserContextProvider = ({ children }) => {
         console.log("Error interno: ", error)
     }
   }
+
+  
 
   
   const logIn = async (loginValues) =>{
@@ -111,10 +113,10 @@ export const UserContextProvider = ({ children }) => {
       }else{
         Swal.fire({
           position: "center",
-          icon: "Tarea Guardada",
+          icon: "success",
           title: "Tu tarea quedo guardada",
           showConfirmButton: false,
-          timer: 700
+          timer: 800
         });
         taskValues.title = ""
         taskValues.content = ""

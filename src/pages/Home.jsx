@@ -77,7 +77,7 @@ function Home() {
     }
   
     retrieveSession();
-  }, [navigate, fetchTasks]);
+  }, [navigate]);
 
   const handleDelete = (deleteId) => {
     const swalWithBootstrapButtons = Swal.mixin({
@@ -85,7 +85,7 @@ function Home() {
         confirmButton: "btn btn-success",
         cancelButton: "btn btn-danger"
       },
-      buttonsStyling: false
+      buttonsStyling: true
     });
     swalWithBootstrapButtons.fire({
       title: "Estas seguro?",
@@ -98,10 +98,9 @@ function Home() {
     }).then((result) => {
       if (result.isConfirmed) {
         swalWithBootstrapButtons.fire({
-          title: "Deleted!",
-          text: "Your file has been deleted.",
+          title: "Eliminado!",
+          text: "Tu nota fue eliminada",
           icon: "success"
-          
         });
         deleteTasks(deleteId);
       } else if (
@@ -136,10 +135,11 @@ function Home() {
           <li>{isLogin && <button onClick={handleLogOut} className='btn__nav' > Cerrar sesión</button>}</li>
           <li><button onClick={()=> navigate('/home')} className='btn__nav'>Home</button></li>
           <li><button onClick={()=> navigate('/about')} className='btn__nav'>About me</button></li>
+          <li><button onClick={()=> navigate('/account')} className='btn__nav'>My Account</button></li>
         </ul>
       </nav>
       <div className='container__tasks'>
-        <div className="container__form">
+        <div className="container__form-tasks">
           <form className='task__form' onSubmit={handleSubmitTask}>
             <label className='task__form-title'>{editingTask ? 'Editar tarea' : 'Añadir una tarea'}</label>
             <label className='task__form-label'>
@@ -177,8 +177,8 @@ function Home() {
               <span className='task__id'>#{index + 1}</span><br />
               <span className='task__title'>{task.title}</span>
               <p className='task__content'>{task.description}</p>
-              <button onClick={() => handleDelete(task.id)}>Eliminar</button>
-              <button onClick={() => editingTask ? cancelEdit() : handleEdit(task)}>{editingTask ? 'Cancelar' : 'Editar'}</button>
+              <button onClick={() => handleDelete(task.id)} className='btn__delete'>Eliminar</button>
+              <button onClick={() => editingTask ? cancelEdit() : handleEdit(task)} className='btn__edit'>{editingTask ? 'Cancelar' : 'Editar'}</button>
             </div>
           ))}
         </div>
