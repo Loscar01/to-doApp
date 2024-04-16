@@ -58,7 +58,7 @@ export const UserContextProvider = ({ children }) => {
   
   const logIn = async (loginValues) =>{
     try {  
-        const { data, error } = await supabase.auth.signInWithPassword({
+        const { error } = await supabase.auth.signInWithPassword({
             email: loginValues.email,
             password: loginValues.password,
           })

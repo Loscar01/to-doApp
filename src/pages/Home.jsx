@@ -77,7 +77,7 @@ function Home() {
     }
   
     retrieveSession();
-  }, [navigate]);
+  }, [navigate, fetchTasks]);
 
   const handleDelete = (deleteId) => {
     const swalWithBootstrapButtons = Swal.mixin({
